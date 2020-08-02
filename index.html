@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MY WEBSITE</title>
+    </head>
+    <style>
+        table{
+            margin: 0 130px 0 130px;
+        }
+    </style>
+
+    <body style="background-color: rgb(243, 240, 234);">
+
+        <h1 align="center">
+            <div style="background-color:gray;color:white;padding:05px"> CALCULATE INTEREST
+        </h1>
+        <h3>
+            <table border="2" align="left" >
+                <tr>
+                    <th></th>
+                    <th>Simple Interest</th>
+                </tr>
+                <tr>
+                    <td>Principle Amount</td>
+                    <td><input type="text" id="amt" </td>
+                </tr>
+                <tr>
+                    <td>Rate Of Interest</td>
+                    <td><input type="text" id="rat" </td>
+                </tr>
+                <tr>
+                    <td>NO. of Years </td>
+                    <td><input type="text" id="yrs" </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="Calculate" onclick="SimpleInterest()" </td>
+                </tr>
+                <tr>
+                    <td>Answers</td>
+                    <td><input type="text" id="SI" </td>
+                </tr>
+            </table>
+        </h3>
+        <h3>
+            <table border="2" align="right">
+                <tr>
+                    <th></th>
+                    <th>Compound Interest</th>
+                </tr>
+                <tr>
+                    <td>Principle Amount</td>
+                    <td><input type="text" id="amt1" </td>
+                </tr>
+                <tr>
+                    <td>Rate Of Interest</td>
+                    <td><input type="text" id="rat1" </td>
+                </tr>
+                <tr>
+                    <td>NO. of Years </td>
+                    <td><input type="text" id="yrs1" </td>
+                </tr>
+                <tr>
+                    <td>Rate of Compound per year</td>
+                    <td><input type="text" id="cpyr" </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="Calculate" onclick="CompoundInterest()" </td>
+                </tr>
+                <tr>
+                    <td>Answers</td>
+                    <td><input type="text" id="CI" </td>
+                </tr>
+            </table>
+        </h3>
+        <script>
+            function SimpleInterest() {
+                var p = eval(amt.value)
+                var r = eval(rat.value)
+                var t = eval(yrs.value)
+
+                SI.value = (p * r / 100) * t
+            }
+
+            function CompoundInterest() {
+                var p = eval(amt1.value)
+                var r = eval(rat1.value)
+                var t = eval(yrs1.value)
+                var n = eval(cpyr.value)
+                var r1 = r / 100
+                var x = (1 + r1 / n)
+                var nt = n * t
+                var e = Math.pow(x, nt)
+                CI.value = p * e
+            }
+        </script>
+    </body>
+
+</html>
